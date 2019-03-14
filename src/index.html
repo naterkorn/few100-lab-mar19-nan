@@ -4,10 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Webpack Showcase</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css ">
 </head>
 
 <body>
-    <h1>Beginning The Lab</h1>
+    <div class="container">
+        <h1>Tip Calculator</h1>
+        <div class="input-group mb-2">
+            <div class="input-group-prepend">
+                <div class="input-group-text">$</div>
+            </div>
+            <input type="number"
+                   class="form-control"
+                   id="billAmount" />
+        </div>
+        <div class="btn-group"
+             role="group"
+             aria-label="Basic example">
+            <button type="button"
+                    value=".1"
+                    class="btn btn-secondary tipButton">10%</button>
+            <button type="button"
+                    value=".15"
+                    class="btn btn-secondary tipButton">15%</button>
+            <button type="button"
+                    value=".20"
+                    class="btn btn-secondary tipButton">20%</button>
+        </div>
+        <div>You are tipping <span id="tipAmount"></span>%</div>
+        <div class="btn-group-vertical">
+            <Div class="resultsDiv">asdf</Div>
+            <Div class="resultsDiv">asdf</Div>
+            <Div class="resultsDiv">asdf</Div>
+            <Div class="resultsDiv">asdf</Div>
+        </div>
+
+    </div>
 </body>
 
 </html>
