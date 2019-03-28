@@ -17,7 +17,7 @@
             </div>
             <input type="number"
                    class="form-control"
-                   id="billAmount" />
+                   id="billAmountInput" />
         </div>
         <div class="btn-group"
              role="group"
@@ -32,14 +32,24 @@
                     value=".20"
                     class="btn btn-secondary tipButton">20%</button>
         </div>
-        <div>You are tipping <span id="tipAmount"></span>%</div>
-        <div class="btn-group-vertical">
-            <Div class="resultsDiv">asdf</Div>
-            <Div class="resultsDiv">asdf</Div>
-            <Div class="resultsDiv">asdf</Div>
-            <Div class="resultsDiv">asdf</Div>
-        </div>
+        <div>You are tipping <span id="tipPercent"></span>%</div>
 
+        <table class="table table-bordered rounded">
+            <tbody>
+                <tr>
+                    <td>Bill Amount: $<span id="billAmount"></span></td>
+                </tr>
+                <tr>
+                    <td>Tip Percentage: <span id="tipPercent2"></span>%</td>
+                </tr>
+                <tr>
+                    <td>Amount of tip: $<span id="tipAmount"></span></td>
+                </tr>
+                <tr>
+                    <td><i>Total to be Paid: $<span id="billTotal"></span></i></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 

@@ -1,11 +1,19 @@
 import './styles.css';
 console.log('Ready to Party');
 
-let selectedTip: number;
+let selectedTip: number = 0;
 const lastTip = 'LastTip';
+const zeroDollars = '0.00';
+const billAmountInput = document.getElementById('billAmountInput') as HTMLInputElement;
 const tipButtons = document.querySelectorAll('.tipButton');
-const tipLabel = document.getElementById('tipAmount');
+const tipPercent = document.getElementById('tipPercent');
 
+const billAmount = document.getElementById('billAmount');
+const tipPercent2 = document.getElementById('tipPercent2');
+const tipAmount = document.getElementById('tipAmount');
+const billTotal = document.getElementById('billTotal');
+
+billAmountInput.addEventListener('change', changeDollarAmounts);
 
 tipButtons.forEach(button => {
     const btnEl = button as HTMLButtonElement;
@@ -16,6 +24,21 @@ tipButtons.forEach(button => {
     }
 });
 
+function changeDollarAmounts() {
+    const billAmountVal = billAmountInput.valueAsNumber;
+    if (billAmountVal) {
+        billAmount.innerText = billAmountVal.toFixed(2).toString();
+        const tipAmountVal = selectedTip * billAmountVal;
+        tipAmount.innerText = tipAmountVal.toFixed(2).toString();
+        billTotal.innerText = (tipAmountVal + billAmountVal).toFixed(2).toString();
+    }
+    else {
+        billAmount.innerText = zeroDollars;
+        tipAmount.innerText = zeroDollars;
+        billTotal.innerText = zeroDollars;
+    }
+
+}
 
 function handleTipButtonClick() {
     processTipSelection(this as HTMLButtonElement);
@@ -29,5 +52,9 @@ function processTipSelection(btn: HTMLButtonElement) {
     localStorage.setItem(lastTip, btn.value);
     selectedTip = parseFloat(btn.value);
     btn.disabled = true;
-    tipLabel.innerText = (selectedTip * 100).toString();
+
+    const tipAsPercent = (selectedTip * 100).toString();
+    tipPercent.innerText = tipAsPercent;
+    tipPercent2.innerText = tipAsPercent;
+    changeDollarAmounts();
 }
